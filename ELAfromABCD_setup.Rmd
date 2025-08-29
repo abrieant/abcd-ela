@@ -17,6 +17,8 @@ Running this code will create an RDS file including all relevant variables for s
 
 Prior to running, will need to find and replace "ABCDdatadir" with the path to the directory where you can access the ABCD data.
 
+'/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/'
+
 ```{r load-packages}
 library(dplyr)
 library(naniar)
@@ -30,7 +32,7 @@ library(naniar)
 #One of the parents/caregivers went to jail?	1 = Yes; 0 = No
 #Did this happen in the past year?	1 = Yes; 0 = No
 
-mh_y_le= read.csv("ABCDdatadir/core/mental-health/mh_y_le.csv", header = TRUE, stringsAsFactors = FALSE)
+mh_y_le= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/mental-health/mh_y_le.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 mh_y_le[mh_y_le==""] =NA
@@ -59,7 +61,7 @@ mh_y_le_bs = mh_y_le_bs[c("src_subject_id", "ple_jail_y_bs", "ple_separ_y_bs", "
 #Example item: parent incarceration
 #One of the parents/caregivers went to jail?	1 = Yes; 0 = No
 #Did this happen in the past year?	1 = Yes; 0 = No
-mh_p_le= read.csv("ABCDdatadir/core/mental-health/mh_p_le.csv", header = TRUE, stringsAsFactors = FALSE)
+mh_p_le= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/mental-health/mh_p_le.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 mh_p_le[mh_p_le==""] =NA
@@ -87,7 +89,7 @@ write.csv(mh_py_le_bs, "mh_py_le_bs.csv")
 ```{r step-3-ksads}
 #step 3 - KSADS (parent report)
 
-mh_p_ksads_ptsd= read.csv("ABCDdatadir/core/mental-health/mh_p_ksads_ptsd.csv", header = TRUE, stringsAsFactors = FALSE)
+mh_p_ksads_ptsd= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/mental-health/mh_p_ksads_ptsd.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 mh_p_ksads_ptsd[mh_p_ksads_ptsd==""] =NA
@@ -100,7 +102,7 @@ mh_p_ksads_ptsd = mh_p_ksads_ptsd[c("src_subject_id", "eventname", "ksads_ptsd_r
 ```{r step-4-fes-youth}
 #step 4: Family Environment Scale (youth report)
 #Family members often criticize each other. 
-ce_y_fes= read.csv("ABCDdatadir/core/culture-environment/ce_y_fes.csv", header = TRUE, stringsAsFactors = FALSE)
+ce_y_fes= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/culture-environment/ce_y_fes.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 ce_y_fes[ce_y_fes==""] =NA
@@ -117,7 +119,7 @@ ce_y_fes = ce_y_fes[c("src_subject_id", "eventname", "fes_youth_q5")]
 #recode: <=2 as indicative of emotional neglect
 #ELA+ using decimal with max 1
 
-ce_y_crpbi= read.csv("ABCDdatadir/core/culture-environment/ce_y_crpbi.csv", header = TRUE, stringsAsFactors = FALSE)
+ce_y_crpbi= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/culture-environment/ce_y_crpbi.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 ce_y_crpbi[ce_y_crpbi==""] =NA
@@ -141,7 +143,7 @@ ce_y_crpbi$crpbi_y_ss_parent_ace = ifelse(ce_y_crpbi$crpbi_y_ss_parent <2, 1, 0)
 #demo_fam_exp6_v2/demo_fam_exp6_v2_l Needed medical care but couldn't afford it
 #demo_fam_exp7_v2/demo_fam_exp7_v2_l Needed dental care but couldn't afford it
 
-abcd_p_demo= read.csv("ABCDdatadir/core/abcd-general/abcd_p_demo.csv", header = TRUE, stringsAsFactors = FALSE)
+abcd_p_demo= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/abcd-general/abcd_p_demo.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 abcd_p_demo[abcd_p_demo==""] =NA
@@ -160,7 +162,7 @@ abcd_p_demo = abcd_p_demo[c("src_subject_id", "eventname", "demo_fam_exp1_v2", "
 #1 = Strongly Disagree /Muy en desacuerdo; 2 = Disagree /En desacuerdo; 3 = Neutral (neither agree nor disagree)/ Neutral (ni de acuerdo ni en desacuerdo); 4 = Agree /De acuerdo; 5 = Strongly Agree/ Muy de acuerdo//
 
 #parent report
-ce_p_nsc= read.csv("ABCDdatadir/core/culture-environment/ce_p_nsc.csv", header = TRUE, stringsAsFactors = FALSE)
+ce_p_nsc= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/culture-environment/ce_p_nsc.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 ce_p_nsc[ce_p_nsc==""] =NA
@@ -174,7 +176,7 @@ ce_p_nsc$neighborhood3r_p_ela = ifelse(ce_p_nsc$neighborhood3r_p >2, 0, 1)
 
 #youth report
 #My neighborhood is safe from crime. (1=Strongly disagree; 5=Strongly agree)
-ce_y_nsc= read.csv("ABCDdatadir/core/culture-environment/ce_y_nsc.csv", header = TRUE, stringsAsFactors = FALSE)
+ce_y_nsc= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/culture-environment/ce_y_nsc.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 ce_y_nsc[ce_y_nsc==""] =NA
@@ -192,7 +194,7 @@ ce_y_nsc$nbh_crime_y_ela = ifelse(ce_y_nsc$neighborhood_crime_y >2, 0, 1)
 #https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7441087/ score of >= 64 clinically elevated
 #mh_p_asr	asr_scr_totprob_t	Total Problems ASR Syndrome Scale (t-score)	T-scores in relation to norms for each gender at ages 18-35 and 36-59, based on national probability samples.
 
-mh_p_asr= read.csv("ABCDdatadir/core/mental-health/mh_p_asr.csv", header = TRUE, stringsAsFactors = FALSE)
+mh_p_asr= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/mental-health/mh_p_asr.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 mh_p_asr[mh_p_asr==""] =NA
@@ -222,7 +224,7 @@ mh_p_asr$asr_scr_totprob_t_ace = ifelse(mh_p_asr$asr_scr_totprob_t <64, 0, 1)
 #famhx_ss_momdad_scd_p	Either parent attempted or committed suicide
 #famhx_ss_momdad_vs_p	Either parent with visions of others spying/plotting problem
 
-mh_p_fhx= read.csv("ABCDdatadir/core/mental-health/mh_p_fhx.csv", header = TRUE, stringsAsFactors = FALSE)
+mh_p_fhx= read.csv("/Users/ab3377/Library/CloudStorage/OneDrive-UniversityofVermont/OneDrive/FERN Lab/abcd-data-release-5.1/core/mental-health/mh_p_fhx.csv", header = TRUE, stringsAsFactors = FALSE)
 
 #recode empty as NA
 mh_p_fhx[mh_p_fhx==""] =NA
